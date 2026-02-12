@@ -70,7 +70,7 @@ jobs:
             api_key: "${{ env.DEEPSEEK_API_KEY }}"
             base_url: "https://api.deepseek.com/v1/chat/completions"
             enable: true
-            analyze_roles: ["龙头", "中军"]   # 可调整为 ["龙头"] 减少 API 调用
+            analyze_roles: ["龙头"]   # 可调整为 ["龙头"] 减少 API 调用
             max_tokens: 1000
 
           # 微信机器人
