@@ -1,0 +1,15 @@
+
+复盘系统运行失败！
+日期: 2026-02-10
+时间: 2026-02-11 02:31:02
+错误: 'DataFetcher' object has no attribute 'get_today_limit_up'
+
+
+详细错误信息:
+Traceback (most recent call last):
+  File "C:\Users\Jenkins\Desktop\stock_analysis\src\main.py", line 206, in run
+    market_data = self._fetch_market_data(trade_date)
+  File "C:\Users\Jenkins\Desktop\stock_analysis\src\main.py", line 289, in _fetch_market_data
+    limit_up_df = self.data_fetcher.get_today_limit_up(trade_date)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataFetcher' object has no attribute 'get_today_limit_up'

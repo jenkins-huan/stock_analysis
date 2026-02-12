@@ -1,0 +1,26 @@
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T02:28:55.858143", "end_time": "2026-02-11T02:28:55.858499", "duration_seconds": 0.000356, "success": false, "error": "'DataFetcher' object has no attribute 'get_today_limit_up'"}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T02:31:02.379406", "end_time": "2026-02-11T02:31:02.379765", "duration_seconds": 0.000359, "success": false, "error": "'DataFetcher' object has no attribute 'get_today_limit_up'"}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T02:34:59.586415", "end_time": "2026-02-11T02:35:45.777448", "duration_seconds": 46.191033, "success": true, "error": null}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T02:37:14.415352", "end_time": "2026-02-11T02:37:44.166067", "duration_seconds": 29.750715, "success": true, "error": null}
+{"trade_date": "unknown", "start_time": "2026-02-11T03:02:07.630009", "end_time": "2026-02-11T03:02:07.630239", "duration_seconds": 0.00023, "success": false, "error": "系统组件未就绪"}
+{"trade_date": "unknown", "start_time": "2026-02-11T03:06:07.385912", "end_time": "2026-02-11T03:06:07.386202", "duration_seconds": 0.00029, "success": false, "error": "系统组件未就绪"}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T03:09:44.269921", "end_time": "2026-02-11T03:09:55.923449", "duration_seconds": 11.653528, "success": true, "error": null}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T11:01:16.525645", "end_time": "2026-02-11T11:01:32.359076", "duration_seconds": 15.833431, "success": true, "error": null}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T11:18:20.255505", "end_time": "2026-02-11T11:18:27.007803", "duration_seconds": 6.752298, "success": true, "error": null}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T11:19:01.745632", "end_time": "2026-02-11T11:19:08.433907", "duration_seconds": 6.688275, "success": true, "error": null}
+{"trade_date": "2026-02-10", "start_time": "2026-02-11T11:24:28.657059", "end_time": "2026-02-11T11:24:33.965291", "duration_seconds": 5.308232, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T16:43:40.481140", "end_time": "2026-02-11T16:43:46.400040", "duration_seconds": 5.9189, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T16:50:14.980742", "end_time": "2026-02-11T16:50:23.666212", "duration_seconds": 8.68547, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:01:18.505668", "end_time": "2026-02-11T17:02:05.121779", "duration_seconds": 46.616111, "success": false, "error": "name 'roles' is not defined"}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:02:50.921158", "end_time": "2026-02-11T17:03:10.127229", "duration_seconds": 19.206071, "success": false, "error": "name 'roles' is not defined"}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:04:43.299308", "end_time": "2026-02-11T17:06:27.461211", "duration_seconds": 104.161903, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:11:48.092741", "end_time": "2026-02-11T17:13:07.461775", "duration_seconds": 79.369034, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:15:20.728979", "end_time": "2026-02-11T17:16:47.175364", "duration_seconds": 86.446385, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:27:03.954968", "end_time": "2026-02-11T17:28:00.322221", "duration_seconds": 56.367253, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:29:35.227584", "end_time": "2026-02-11T17:30:08.077119", "duration_seconds": 32.849535, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T17:32:19.450127", "end_time": "2026-02-11T17:32:52.768879", "duration_seconds": 33.318752, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T22:51:58.242061", "end_time": "2026-02-11T22:52:36.301228", "duration_seconds": 38.059167, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T23:08:56.906108", "end_time": "2026-02-11T23:09:46.387925", "duration_seconds": 49.481817, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T23:11:27.289768", "end_time": "2026-02-11T23:12:06.768009", "duration_seconds": 39.478241, "success": true, "error": null}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T23:15:44.170720", "end_time": "2026-02-11T23:16:28.752808", "duration_seconds": 44.582088, "success": false, "error": "'AI深度分析'"}
+{"trade_date": "2026-02-11", "start_time": "2026-02-11T23:21:22.064698", "end_time": "2026-02-11T23:21:30.131076", "duration_seconds": 8.066378, "success": true, "error": null}

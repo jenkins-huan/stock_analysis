@@ -1,0 +1,12 @@
+2026-02-11 03:06:07,385 - __main__ - ERROR - ❌ DataFetcher初始化失败: invalid syntax (data_fetcher.py, line 2)
+2026-02-11 03:06:07,385 - __main__ - WARNING - 组件初始化共发现 1 个问题:
+2026-02-11 03:06:07,385 - __main__ - WARNING -   1. 数据获取器初始化失败: invalid syntax (data_fetcher.py, line 2)
+2026-02-11 03:06:07,385 - __main__ - INFO - ============================================================
+2026-02-11 03:06:07,385 - __main__ - INFO - A股打板复盘系统 - 开始运行
+2026-02-11 03:06:07,385 - __main__ - INFO - ============================================================
+2026-02-11 03:06:07,386 - __main__ - ERROR - 系统组件初始化失败，无法运行
+2026-02-11 03:06:07,386 - __main__ - ERROR - ❌ 复盘运行失败: 系统组件未就绪
+Traceback (most recent call last):
+  File "C:\Users\Jenkins\Desktop\stock_analysis\src\main.py", line 243, in run
+    raise RuntimeError("系统组件未就绪")
+RuntimeError: 系统组件未就绪

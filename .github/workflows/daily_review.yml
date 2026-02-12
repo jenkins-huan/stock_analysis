@@ -1,0 +1,77 @@
+name: 每日打板复盘
+
+on:
+  schedule:
+    # 每个交易日18:00运行（UTC时间，北京时间+8）
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+      
+    - name: 设置Python环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: 安装依赖
+      run: |
+        pip install -r requirements.txt
+        
+    - name: 创建配置文件
+      env:
+        TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
+      run: |
+        mkdir -p config
+        cat > config/config.yaml << EOF
+        data_sources:
+          primary: baostock
+          backup: tushare
+          
+        baostock:
+          username: ""
+          password: ""
+          
+        tushare:
+          token: "${{ env.TUSHARE_TOKEN }}"
+          timeout: 30
+          
+        analysis:
+          涨停阈值: 9.8
+          连板天数: 3
+          板块强度阈值: 3
+          龙头评分权重:
+            连板高度: 0.35
+            涨停时间: 0.25
+            封单金额: 0.20
+            流通市值: 0.20
+           
+        wechat:
+          webhook: "${{ env.WECHAT_WEBHOOK }}"
+          enable: true
+          
+        schedule:
+          run_time: "18:00"
+          market_days_only: true
+        EOF
+        
+    - name: 运行复盘系统
+      run: |
+        python src/main.py
+        
+    - name: 上传报告
+      uses: actions/upload-artifact@v3
+      with:
+        name: 复盘报告
+        path: results/
+        
+    - name: 发送完成通知
+      if: always()
+      run: |
+        echo "复盘任务完成"

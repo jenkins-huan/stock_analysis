@@ -1,0 +1,22 @@
+2026-02-11 02:28:55,848 - src.data.data_fetcher - INFO - BaoStock登录成功
+2026-02-11 02:28:55,848 - src.data.data_fetcher - INFO - Tushare token未配置或使用默认值，将仅使用BaoStock
+2026-02-11 02:28:55,848 - __main__ - INFO - ✓ 数据获取器初始化成功
+2026-02-11 02:28:55,849 - __main__ - INFO - ✓ 涨停分析器初始化成功
+2026-02-11 02:28:55,852 - __main__ - INFO - ✓ 板块分析器初始化成功
+2026-02-11 02:28:55,852 - __main__ - INFO - ✓ 龙头识别器初始化成功
+2026-02-11 02:28:55,855 - __main__ - INFO - ✓ 策略生成器初始化成功
+2026-02-11 02:28:55,858 - __main__ - INFO - ✓ 微信通知器初始化成功（未启用）
+2026-02-11 02:28:55,858 - __main__ - INFO - ============================================================
+2026-02-11 02:28:55,858 - __main__ - INFO - A股打板复盘系统 - 开始运行
+2026-02-11 02:28:55,858 - __main__ - INFO - ============================================================
+2026-02-11 02:28:55,858 - __main__ - INFO - 📅 分析日期: 2026-02-10
+2026-02-11 02:28:55,858 - __main__ - INFO - 📊 步骤1: 获取市场数据...
+2026-02-11 02:28:55,858 - __main__ - INFO - 正在获取2026-02-10的涨停股票数据...
+2026-02-11 02:28:55,858 - __main__ - ERROR - ❌ 复盘运行失败: 'DataFetcher' object has no attribute 'get_today_limit_up'
+Traceback (most recent call last):
+  File "C:\Users\Jenkins\Desktop\stock_analysis\src\main.py", line 206, in run
+    market_data = self._fetch_market_data(trade_date)
+  File "C:\Users\Jenkins\Desktop\stock_analysis\src\main.py", line 289, in _fetch_market_data
+    limit_up_df = self.data_fetcher.get_today_limit_up(trade_date)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataFetcher' object has no attribute 'get_today_limit_up'

@@ -1,0 +1,37 @@
+# 正确示例
+data_sources:
+  primary: baostock
+  backup: akshare  # 注意这里改为akshare
+
+baostock:
+  username: ""
+  password: ""
+
+akshare:
+  enable: true
+  timeout: 15
+
+analysis:
+  涨停阈值: 9.8
+  连板天数: 3
+  板块强度阈值: 3
+  龙头评分权重:
+    连板高度: 0.35
+    涨停时间: 0.25
+    封单金额: 0.20
+    流通市值: 0.20
+
+wechat:
+  webhook: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a904623d-e3ed-40ad-8f37-6fc0c5cd8af8"
+  enable: true
+
+schedule:
+  run_time: "18:00"
+  market_days_only: true
+# 找到并修改以下部分
+deepseek:
+  api_key: "sk-9af8d72ca7614a26bf7ca8b55a7c2224"  # 替换为真实密钥
+  base_url: "https://api.deepseek.com/v1/chat/completions"
+  enable: true  # 确保这里是 true
+  analyze_roles: ["龙头"]  # 分析哪些角色 "龙头", "中军"
+  max_tokens: 1000

@@ -1,0 +1,97 @@
+2026-02-11 02:48:25,294 - src.data.data_fetcher - INFO - ✅ BaoStock登录成功
+2026-02-11 02:48:25,294 - src.data.data_fetcher - INFO - ✅ Tushare初始化成功
+2026-02-11 02:48:25,295 - __main__ - INFO - ✓ 数据获取器初始化成功
+2026-02-11 02:48:25,296 - __main__ - INFO - ✓ 涨停分析器初始化成功
+2026-02-11 02:48:25,296 - __main__ - INFO - ✓ 板块分析器初始化成功
+2026-02-11 02:48:25,297 - __main__ - INFO - ✓ 龙头识别器初始化成功
+2026-02-11 02:48:25,297 - __main__ - INFO - ✓ 策略生成器初始化成功
+2026-02-11 02:48:25,298 - __main__ - INFO - ✓ 微信通知器初始化成功（未启用）
+2026-02-11 02:48:25,298 - __main__ - INFO - ============================================================
+2026-02-11 02:48:25,298 - __main__ - INFO - A股打板复盘系统 - 开始运行
+2026-02-11 02:48:25,298 - __main__ - INFO - ============================================================
+2026-02-11 02:48:25,298 - __main__ - INFO - 📅 分析日期: 2026-02-10
+2026-02-11 02:48:25,298 - __main__ - INFO - 📊 步骤1: 获取市场数据...
+2026-02-11 02:48:25,298 - __main__ - INFO - 正在获取2026-02-10的涨停股票数据...
+2026-02-11 02:48:25,420 - src.data.data_fetcher - WARNING - ⚠️  Tushare涨停数据接口不可用: 抱歉，您没有接口访问权限，权限的具体详情访问：https://tushare.pro/document/1?doc_id=108。
+2026-02-11 02:48:25,421 - src.data.data_fetcher - INFO - ℹ️  正在通过日线数据计算涨停股票，这可能需要一些时间...
+2026-02-11 02:48:33,051 - src.data.data_fetcher - INFO - ✅ 从BaoStock获取到 8617 只股票基本信息
+2026-02-11 02:48:33,055 - src.data.data_fetcher - INFO - ℹ️  开始分析 6104 只A股股票的涨停情况...
+2026-02-11 02:48:33,348 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:33,348 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:33,348 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:33,348 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:33,800 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:33,800 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:33,800 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:33,800 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:34,892 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:34,892 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:34,892 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:34,892 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:35,069 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:35,070 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:35,070 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:35,070 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:35,377 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:35,377 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:35,377 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:35,377 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:36,040 - src.data.data_fetcher - INFO - ℹ️  进度: 20/200，发现 0 只涨停股票
+2026-02-11 02:48:36,603 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:36,603 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:36,603 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:36,603 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:37,579 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:37,579 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:37,579 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:37,579 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:38,089 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:38,089 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:38,089 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:38,089 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:38,349 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:38,349 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:38,349 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:38,349 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:38,506 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:38,506 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:38,506 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:38,506 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:38,755 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:38,755 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:38,755 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:38,755 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:38,755 - src.data.data_fetcher - INFO - ℹ️  进度: 40/200，发现 0 只涨停股票
+2026-02-11 02:48:39,158 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:39,159 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:39,159 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:39,159 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:39,373 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:39,373 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:39,373 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:39,373 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:39,800 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:39,800 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:39,800 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:39,800 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:40,225 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:40,225 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:40,225 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:40,225 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:40,387 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:40,387 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:40,387 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:40,387 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:40,554 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:40,554 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:40,554 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:40,554 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:40,771 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:40,771 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:40,771 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:40,771 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:41,257 - src.data.data_fetcher - WARNING - ⛔ Tushare daily_basic接口权限不足。请检查：
+2026-02-11 02:48:41,257 - src.data.data_fetcher - WARNING -    1. 确保token有效且在config.yaml中正确配置
+2026-02-11 02:48:41,257 - src.data.data_fetcher - WARNING -    2. 访问 https://tushare.pro/document/2 查看'daily_basic'接口积分要求
+2026-02-11 02:48:41,257 - src.data.data_fetcher - WARNING -    3. 完成资料、签到或分享获取积分，或考虑升级
+2026-02-11 02:48:41,981 - src.data.data_fetcher - INFO - ✅ BaoStock登出成功

@@ -1,0 +1,12 @@
+
+复盘系统运行失败！
+日期: unknown
+时间: 2026-02-11 03:02:07
+错误: 系统组件未就绪
+
+
+详细错误信息:
+Traceback (most recent call last):
+  File "C:\Users\Jenkins\Desktop\stock_analysis\src\main.py", line 243, in run
+    raise RuntimeError("系统组件未就绪")
+RuntimeError: 系统组件未就绪
