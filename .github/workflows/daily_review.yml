@@ -4,18 +4,20 @@ on:
   schedule:
     # 每个交易日18:00运行（UTC时间，北京时间+8）
     - cron: '0 10 * * 1-5'
-  workflow_dispatch:  # 支持手动触发
+  workflow_dispatch:
 
 jobs:
   review:
     runs-on: ubuntu-latest
     
     steps:
+    # 1. actions/checkout 升级至 v4（基于 Node 20）
     - name: 检出代码
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
+    # 2. actions/setup-python 升级至 v5（基于 Node 20，支持 Python 3.12）
     - name: 设置Python环境
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.9'
         
@@ -65,11 +67,14 @@ jobs:
       run: |
         python src/main.py
         
+    # 3. actions/upload-artifact 从 v3 升级至 v4（关键修复）
     - name: 上传报告
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: 复盘报告
         path: results/
+        # 如需覆盖同名工件，可取消下一行注释
+        # overwrite: true
         
     - name: 发送完成通知
       if: always()
