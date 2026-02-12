@@ -22,7 +22,7 @@ analysis:
     流通市值: 0.20
 
 wechat:
-  webhook: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a904623d-e3ed-40ad-8f37-6fc0c5cd8af8"
+  webhook: ""
   enable: true
 
 schedule:
@@ -30,7 +30,7 @@ schedule:
   market_days_only: true
 # 找到并修改以下部分
 deepseek:
-  api_key: "sk-9af8d72ca7614a26bf7ca8b55a7c2224"  # 替换为真实密钥
+  api_key: ""  # 替换为真实密钥
   base_url: "https://api.deepseek.com/v1/chat/completions"
   enable: true  # 确保这里是 true
   analyze_roles: ["龙头"]  # 分析哪些角色 "龙头", "中军"
