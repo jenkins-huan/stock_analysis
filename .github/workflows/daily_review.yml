@@ -2,81 +2,103 @@ name: 每日打板复盘
 
 on:
   schedule:
-    # 每个交易日18:00运行（UTC时间，北京时间+8）
+    # 每个交易日 18:00 运行（UTC 10:00，北京时间 +8）
     - cron: '0 10 * * 1-5'
-  workflow_dispatch:
+  workflow_dispatch:   # 允许手动触发
 
 jobs:
   review:
     runs-on: ubuntu-latest
-    
+
     steps:
-    # 1. actions/checkout 升级至 v4（基于 Node 20）
-    - name: 检出代码
-      uses: actions/checkout@v4
-      
-    # 2. actions/setup-python 升级至 v5（基于 Node 20，支持 Python 3.12）
-    - name: 设置Python环境
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.9'
-        
-    - name: 安装依赖
-      run: |
-        pip install -r requirements.txt
-        
-    - name: 创建配置文件
-      env:
-        TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
-        WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
-      run: |
-        mkdir -p config
-        cat > config/config.yaml << EOF
-        data_sources:
-          primary: baostock
-          backup: tushare
-          
-        baostock:
-          username: ""
-          password: ""
-          
-        tushare:
-          token: "${{ env.TUSHARE_TOKEN }}"
-          timeout: 30
-          
-        analysis:
-          涨停阈值: 9.8
-          连板天数: 3
-          板块强度阈值: 3
-          龙头评分权重:
-            连板高度: 0.35
-            涨停时间: 0.25
-            封单金额: 0.20
-            流通市值: 0.20
-           
-        wechat:
-          webhook: "${{ env.WECHAT_WEBHOOK }}"
-          enable: true
-          
-        schedule:
-          run_time: "18:00"
-          market_days_only: true
-        EOF
-        
-    - name: 运行复盘系统
-      run: |
-        python src/main.py
-        
-    # 3. actions/upload-artifact 从 v3 升级至 v4（关键修复）
-    - name: 上传报告
-      uses: actions/upload-artifact@v4
-      with:
-        name: 复盘报告
-        path: results/
-        # 如需覆盖同名工件，可取消下一行注释
-        # overwrite: true
-        
-    - name: 发送完成通知
-      if: always()
-      run: |
-        echo "复盘任务完成"
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'          # 推荐 3.10，稳定且兼容所有依赖
+          cache: 'pip'                   # 自动缓存 pip 依赖，加速构建
+
+      - name: 安装系统依赖（如需）
+        run: |
+          # 某些数据源可能需要额外库，例如 tushore 需要 ta-lib，但 Ubuntu 自带
+          # 如遇 akshare 相关编译问题，可取消注释下一行
+          # sudo apt-get update && sudo apt-get install -y libta-lib0
+
+      - name: 安装 Python 依赖
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 创建配置文件（从 Secrets 注入）
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+          WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}   # 新增：DeepSeek API Key
+        run: |
+          # 直接写入项目根目录 config.yaml，与代码默认读取路径一致
+          cat > config.yaml << EOF
+          # 数据源配置
+          data_sources:
+            primary: baostock
+            backup: tushare
+
+          # BaoStock 无需登录
+          baostock:
+            username: ""
+            password: ""
+
+          # Tushare 配置
+          tushare:
+            token: "${{ env.TUSHARE_TOKEN }}"
+            timeout: 30
+
+          # 分析参数
+          analysis:
+            涨停阈值: 9.8
+            连板天数: 3
+            板块强度阈值: 3
+            龙头评分权重:
+              连板高度: 0.35
+              涨停时间: 0.25
+              封单金额: 0.20
+              流通市值: 0.20
+
+          # DeepSeek AI 分析（关键新增）
+          deepseek:
+            api_key: "${{ env.DEEPSEEK_API_KEY }}"
+            base_url: "https://api.deepseek.com/v1/chat/completions"
+            enable: true
+            analyze_roles: ["龙头", "中军"]   # 可调整为 ["龙头"] 减少 API 调用
+            max_tokens: 1000
+
+          # 微信机器人
+          wechat:
+            webhook: "${{ env.WECHAT_WEBHOOK }}"
+            enable: true
+
+          # 运行配置
+          schedule:
+            run_time: "18:00"
+            market_days_only: true
+          EOF
+          echo "配置文件已生成："
+          cat config.yaml | grep -v "token\|api_key"   # 安全起见，不打印密钥
+
+      - name: 运行复盘系统
+        run: |
+          python src/main.py
+
+      - name: 上传报告（JSON / Markdown）
+        uses: actions/upload-artifact@v4
+        with:
+          name: 复盘报告-${{ github.run_id }}
+          path: results/          # 上传整个 results 目录
+          retention-days: 7      # 保留 7 天，节省存储空间
+
+      - name: 发送完成通知（仅当微信配置启用）
+        if: always()
+        run: |
+          echo "✅ GitHub Actions 复盘任务执行完毕"
+          # 您也可以在此处添加更丰富的通知（如钉钉、飞书）
