@@ -640,38 +640,45 @@ schedule:
         }
 
     def _integrate_ai_analysis(self, strategy: Dict, ai_analysis: Dict) -> Dict:
-        """将AI分析结果整合到策略报告中"""
+        """极简版：只注入必须的AI字段，不创建多余结构"""
         if not ai_analysis:
             return strategy
 
-        # 创建AI分析部分
-        strategy['AI深度分析'] = {
-            '分析时间': ai_analysis.get('analyzed_at'),
-            '分析日期': ai_analysis.get('trade_date'),
-            '梯队分析': {}
-        }
+        # 1. 主线替换
+        if 'market_themes' in ai_analysis and ai_analysis['market_themes']:
+            strategy['主线分析'] = []
+            for t in ai_analysis['market_themes']:
+                strategy['主线分析'].append({
+                    '板块名称': t.get('板块名称', '未知'),
+                    '涨停家数': t.get('涨停家数', 0),
+                    '强度评级': t.get('强度评级', '★★★'),
+                    '持续性判断': t.get('持续性判断', '需观察'),
+                    '龙头股': t.get('龙头股', ''),
+                    '催化因素': t.get('催化因素', ''),
+                    'AI分析摘要': t.get('AI分析摘要', '')
+                })
 
-        # 按角色整合分析结果
+        # 2. 个股策略注入（只添加涨停原因和AI摘要）
+        ai_stock_map = {}
         for role in ['龙头', '中军', '补涨']:
-            role_analysis = ai_analysis.get(role, [])
-            if role_analysis:
-                strategy['AI深度分析']['梯队分析'][role] = []
+            for item in ai_analysis.get(role, []):
+                code = item.get('stock_info', {}).get('code')
+                if code:
+                    ai_stock_map[code] = item
 
-                for stock_analysis in role_analysis:
-                    stock_info = stock_analysis.get('stock_info', {})
-
-                    # 结构化每只股票的AI分析
-                    formatted_analysis = {
-                        '股票': f"{stock_info.get('name', '')}({stock_info.get('code', '')})",
-                        '涨停原因分析': stock_analysis.get('详细分析', '暂无分析'),
-                        '消息催化': stock_analysis.get('涨停原因', ['综合分析']),
-                        '分析摘要': stock_analysis.get('摘要', '暂无摘要')
-                    }
-
-                    strategy['AI深度分析']['梯队分析'][role].append(formatted_analysis)
-
-        # 添加AI分析摘要
-        strategy['AI深度分析']['分析摘要'] = self._generate_ai_summary(ai_analysis)
+        for stock in strategy.get('个股策略', []):
+            code = stock.get('代码')
+            if code in ai_stock_map:
+                ai_item = ai_stock_map[code]
+                # 涨停原因（列表）
+                if '涨停原因' in ai_item:
+                    stock['涨停原因'] = ai_item['涨停原因']
+                # 消息催化（取第一条简写）
+                if ai_item.get('涨停原因') and isinstance(ai_item['涨停原因'], list):
+                    stock['消息催化'] = ai_item['涨停原因'][0][:50]
+                # AI分析摘要
+                if '摘要' in ai_item:
+                    stock['AI分析摘要'] = ai_item['摘要']
 
         return strategy
 
