@@ -65,25 +65,25 @@ class WechatNotifier:
         lines.append(f"- **市场情绪**: {market.get('市场情绪', 'N/A')}")
         lines.append(f"- **赚钱效应**: {market.get('赚钱效应', 'N/A')}\n")
 
-        # 主线分析
+
+        # 主线分析（AI 增强版）
         lines.append("### 🎯 主线分析")
-        themes = strategy['主线分析']
+        themes = strategy.get('主线分析', [])
         if themes:
             for i, theme in enumerate(themes, 1):
                 lines.append(f"{i}. **{theme['板块名称']}**")
-                lines.append(f"   - 涨停家数: {theme.get('涨停家数', 0)}")
-                lines.append(f"   - 强度评级: {theme.get('强度评级', 'N/A')}")
+                lines.append(f"   - 涨停: {theme.get('涨停家数', 0)}家 | 强度: {theme.get('强度评级', 'N/A')}")
                 lines.append(f"   - 持续性: {theme.get('持续性判断', 'N/A')}")
-                # 新增AI专属字段
+
+                # ----- AI 专属字段（简洁展示）-----
                 if '龙头股' in theme and theme['龙头股']:
-                    lines.append(f"   - 👑 龙头股: {theme['龙头股']}")
+                    lines.append(f"   - 👑 龙头: {theme['龙头股']}")
                 if '催化因素' in theme and theme['催化因素']:
-                    # 截断显示
-                    catalyst = theme['催化因素'][:50] + ('...' if len(theme['催化因素']) > 50 else '')
-                    lines.append(f"   - 🔥 催化因素: {catalyst}")
+                    cat = theme['催化因素'][:20] + ('...' if len(theme['催化因素']) > 20 else '')
+                    lines.append(f"   - 🔥 催化: {cat}")
                 if 'AI分析摘要' in theme and theme['AI分析摘要']:
-                    summary = theme['AI分析摘要'][:100] + ('...' if len(theme['AI分析摘要']) > 100 else '')
-                    lines.append(f"   - 🤖 AI核心逻辑: {summary}")
+                    abs_ = theme['AI分析摘要'][:30] + ('...' if len(theme['AI分析摘要']) > 30 else '')
+                    lines.append(f"   - 💡 逻辑: {abs_}")
         else:
             lines.append("暂无明确主线\n")
 
